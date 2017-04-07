@@ -1,7 +1,5 @@
 MODULE okm;
 
-IMPORT S := SYSTEM;
-
 CONST
 
 maxNameLength*       =       80
@@ -28,10 +26,10 @@ TEXTC80*             =  1
 GCLEARSCREEN*        =  1
 
 TYPE
-   UINT8*  = S.UINT8;
-   UINT16* = S.UINT16;
-   UINT32* = S.UINT32;
-   UINT64* = S.UINT64;
+   (*UINT8*  = SYSTEM.UINT8;
+   UINT16* = SYSTEM.UINT16;
+   UINT32* = SYSTEM.UINT32;
+   UINT64* = SYSTEM.UINT64;*)
 
    tiffHeader* = RECORD
           lsb* : SHORTINT;
@@ -39,28 +37,28 @@ TYPE
    END;
 
    bmpfileheader* = RECORD
-            filetype* : UINT8;
-            filesize* : UINT32;
+            filetype* : SHORTINT(*UINT8*);
+            filesize* : INTEGER(*UINT32*);
            reserved1*, reserved2* : SHORTINT;
-         bitmapoffset : UINT32;
+         bitmapoffset : INTEGER(*UINT32*);
    END;
 
    bitmapheader* = RECORD
-           size* : UINT32;
+           size* : INTEGER(*UINT32*);
           width* : INTEGER;
          height* : INTEGER;
-         planes* : UINT8;
-   bitsperpixel* : UINT8;
-    compression* : UINT32;
-   sizeofbitmap* : UINT32;
-        horzres* : UINT32;
-        vertres* : UINT32;
-     colorsused* : UINT32;
-      colorsimp* : UINT32;
+         planes* : SHORTINT(*UINT8*);
+   bitsperpixel* : SHORTINT(*UINT8*);
+    compression* : INTEGER(*UINT32*);
+   sizeofbitmap* : INTEGER(*UINT32*);
+        horzres* : INTEGER(*UINT32*);
+        vertres* : INTEGER(*UINT32*);
+     colorsused* : INTEGER(*UINT32*);
+      colorsimp* : INTEGER(*UINT32*);
     END;
     
     ct* = RECORD
-     blue*, green*, red* : UINT8
+     blue*, green*, red* : SHORTINT(*UINT8*)
     END;
 
 END okm.
