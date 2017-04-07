@@ -1,4 +1,4 @@
-MODULE okm;
+MODULE ohmuKm;
 
 IMPORT SYSTEM;
 
@@ -99,4 +99,4 @@ TYPE
            lAlpha*   : ARRAY 4 OF CHAR;
     END;
 
-END okm.
+END ohmuKm.
